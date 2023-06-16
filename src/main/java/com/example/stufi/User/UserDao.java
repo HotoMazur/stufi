@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class UserDao {
     public static User addUserToDb() throws SQLException {
         String[] language ={"en"};
-        User newUser = new User("Hoto", "1234", "Dima", "Mazurev", "dmytro.mazurev", LocalDate.now(), "12312312", LocalDate.now(),  LocalDate.now(), true, language);
+        User newUser = new User("Maz", "1234", "Dima", "Mazurev", "dmytro.mazurev", LocalDate.now(), "12312312", LocalDate.now(),  LocalDate.now(), true, language);
         Connection connection = DbUtils.connectToDb();
         PreparedStatement ps = connection.prepareStatement("insert into \"user\" (name, surname, email, birth_date, phone_number, start_study_date, end_study_date, sex, languages, password, username) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
         ps.setString(1, newUser.getName());
