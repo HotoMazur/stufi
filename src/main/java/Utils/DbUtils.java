@@ -7,9 +7,9 @@ import java.sql.SQLException;
 
 public class DbUtils {
     public static Connection connectToDb() {
-        final String url = "jdbc:postgresql://db.fxnuxdddwkrgwubkaocg.supabase.co:5432/postgres";
+        final String url = "jdbc:postgresql://db.uuyzbdddimkofoswqboo.supabase.co:5432/postgres";
         final String user = "postgres";
-        final String password = "dimastest23445870";
+        final String password = "difwuf-0cIpzy-dyrseh";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url, user, password);
