@@ -22,15 +22,10 @@ public class StufiApplication {
 		SpringApplication.run(StufiApplication.class, args);
 	}
 
-//	@PostMapping("/registration")
-//	User newUser(@RequestBody User user) throws SQLException {
-//		return UserDao.addUserToDb(user);
-//	}
-//
-//	@RequestMapping(value = "/users/test")
-//	@ResponseBody
-//	public String testing() {
-//		return "Test";
-//	}
+	@RequestMapping(value = "/users/test")
+	@ResponseBody
+	public String testing() {
+	return "Test";
+	}
 
 }

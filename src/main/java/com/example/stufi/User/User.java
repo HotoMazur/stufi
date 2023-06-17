@@ -27,8 +27,9 @@ public class User {
     private LocalDate startStudyDate;
     private LocalDate endStudyDate;
 
-    public User(String password, String name, String surname, String email, LocalDate birthDate, String uni_name, String faculty, String major, String group, LocalDate created_at, String phoneNumber, LocalDate startStudyDate, LocalDate endStudyDate) {
-        this.password = password;
+    //For profile
+    public User(double id, String name, String surname, String email, LocalDate birthDate, String uni_name, String faculty, String major, String group, LocalDate created_at, String phoneNumber, LocalDate startStudyDate, LocalDate endStudyDate) {
+        this.id = id;
         this.name = name;
         this.surname = surname;
         this.email = email;
@@ -43,18 +44,4 @@ public class User {
         this.endStudyDate = endStudyDate;
     }
 
-    public User(String password, String name, String surname, String email, LocalDate birthDate, String uni_name, String faculty, String major, String group, String phoneNumber, LocalDate startStudyDate, LocalDate endStudyDate) {
-        this.password = password;
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.birthDate = birthDate;
-        this.uni_name = uni_name;
-        this.faculty = faculty;
-        this.major = major;
-        this.group = group;
-        this.phoneNumber = phoneNumber;
-        this.startStudyDate = startStudyDate;
-        this.endStudyDate = endStudyDate;
-    }
 }

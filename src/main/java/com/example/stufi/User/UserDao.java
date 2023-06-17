@@ -28,9 +28,11 @@ public class UserDao {
         return null;
     }
 
-    public static boolean validateUser(String email, String password) throws SQLException {
+    public static User validateUser(String email, String password) throws SQLException {
         String checkEmail = null;
         String checkPassword = null;
+        User user = null;
+
 
         Connection connection = DbUtils.connectToDb();
         PreparedStatement psCheckEmailAndPassword = connection.prepareStatement("SELECT email, password FROM users WHERE email = ?");
@@ -40,9 +42,30 @@ public class UserDao {
             checkEmail = rsCheckEmailAndPassword.getString("email");
             checkPassword = rsCheckEmailAndPassword.getString("password");
         }
-        return checkEmail != null && checkPassword.equals(Security.encodeText(password));
+        rsCheckEmailAndPassword.close();
+        psCheckEmailAndPassword.close();
+        if (checkEmail != null && checkPassword.equals(Security.encodeText(password))) {
+            PreparedStatement psTakeUserData = connection.prepareStatement("SELECT * FROM users WHERE email = ?");
+            psTakeUserData.setString(1, email);
+            ResultSet rsTakeUserData = psTakeUserData.executeQuery();
+            while (rsTakeUserData.next()) {
+                user = new User(rsTakeUserData.getInt("id"),
+                        rsTakeUserData.getString("name"),
+                        rsTakeUserData.getString("surname"),
+                        rsTakeUserData.getString("email"),
+                        rsTakeUserData.getDate("birth_date").toLocalDate(),
+                        rsTakeUserData.getString("uni_name"),
+                        rsTakeUserData.getString("faculty"),
+                        rsTakeUserData.getString("major"),
+                        rsTakeUserData.getString("group"),
+                        rsTakeUserData.getDate("created_at").toLocalDate(),
+                        rsTakeUserData.getString("phone_number"),
+                        rsTakeUserData.getDate("start_study_date").toLocalDate(),
+                        rsTakeUserData.getDate("end_study_date").toLocalDate());
+            }
+        }
+
+        return user;
     }
-
-
 }
 
