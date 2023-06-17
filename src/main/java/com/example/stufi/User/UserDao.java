@@ -1,26 +1,13 @@
 package com.example.stufi.User;
 
-import Utils.DbUtils;
-import Utils.Security;
+import com.example.stufi.Utils.DbUtils;
+import com.example.stufi.Utils.Security;
 
 import java.sql.*;
 import java.time.LocalDate;
 
 public class UserDao {
-    public static User addUserToDb() throws SQLException {
-        User newUser = new User("1234",
-                "Dmytro",
-                "Mazurev",
-                "yttyt@gmai.com",
-                LocalDate.now(),
-                "VGTU",
-                "FS",
-                "IT",
-                "ITfuc",
-                LocalDate.now(),
-                "12131213",
-                LocalDate.now(),
-                LocalDate.now());
+    public static User addUserToDb(User newUser) throws SQLException {
         Connection connection = DbUtils.connectToDb();
         PreparedStatement psAddUserToDb = connection.prepareStatement("insert into \"users\" (password,name,surname,email,phone_number,birth_date,uni_name,faculty,major,\"group\",start_study_date,end_study_date,created_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
         psAddUserToDb.setString(1, Security.encodeText(newUser.getPassword()));
@@ -35,7 +22,7 @@ public class UserDao {
         psAddUserToDb.setString(10, newUser.getGroup());
         psAddUserToDb.setDate(11, Date.valueOf(newUser.getStartStudyDate()));
         psAddUserToDb.setDate(12, Date.valueOf(newUser.getEndStudyDate()));
-        psAddUserToDb.setDate(13, Date.valueOf(newUser.getCreated_at()));
+        psAddUserToDb.setDate(13, Date.valueOf(LocalDate.now()));
         psAddUserToDb.execute();
         DbUtils.disconnect(connection, psAddUserToDb);
         return null;

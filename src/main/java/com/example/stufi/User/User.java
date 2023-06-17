@@ -42,4 +42,19 @@ public class User {
         this.startStudyDate = startStudyDate;
         this.endStudyDate = endStudyDate;
     }
+
+    public User(String password, String name, String surname, String email, LocalDate birthDate, String uni_name, String faculty, String major, String group, String phoneNumber, LocalDate startStudyDate, LocalDate endStudyDate) {
+        this.password = password;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.birthDate = birthDate;
+        this.uni_name = uni_name;
+        this.faculty = faculty;
+        this.major = major;
+        this.group = group;
+        this.phoneNumber = phoneNumber;
+        this.startStudyDate = startStudyDate;
+        this.endStudyDate = endStudyDate;
+    }
 }

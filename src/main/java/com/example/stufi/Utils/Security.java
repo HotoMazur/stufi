@@ -1,4 +1,4 @@
-package Utils;
+package com.example.stufi.Utils;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -12,18 +12,6 @@ import java.util.Base64;
 public class Security {
     private static final String SECRET_KEY = "ILoveCat";
     private static final String SALT = "MySalt12345";
-
-//    public static void main(String[] args) {
-//        String originalText = "Hello, World!";
-//
-//        // Encode the original text
-//        String encodedText = encodeText(originalText);
-//        System.out.println("Encoded Text: " + encodedText);
-//
-//        // Decode the encoded text
-//        String decodedText = decodeText(encodedText);
-//        System.out.println("Decoded Text: " + decodedText);
-//    }
 
     public static String encodeText(String text) {
         try {

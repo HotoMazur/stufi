@@ -1,4 +1,4 @@
-package Web_pages;
+package com.example.stufi.Web_pages;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
