@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class StufiApplication {
 
 	public static void main(String[] args) throws SQLException {
-//		UserDao.addUserToDb();
+		UserDao.addUserToDb();
 		SpringApplication.run(StufiApplication.class, args);
 
 	}
