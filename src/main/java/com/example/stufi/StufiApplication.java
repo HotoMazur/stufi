@@ -1,6 +1,5 @@
 package com.example.stufi;
 
-import Utils.DbUtils;
 import com.example.stufi.User.UserDao;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,7 +16,6 @@ public class StufiApplication {
 	public static void main(String[] args) throws SQLException {
 //		UserDao.addUserToDb();
 		SpringApplication.run(StufiApplication.class, args);
-
 
 	}
 
